@@ -14,27 +14,27 @@ class LocationSeeder extends Seeder
     public function run(): void
     {
         Location::firstOrCreate(
-            [ 'key' => 'salon-1', 'label' => 'Salon 1' ]
+            [ 'key' => 'salon-1', 'area' => 'Salon 1' ]
         );
 
         Location::firstOrCreate(
-            [ 'key' => 'salon-2', 'label' => 'Salon 2' ]
+            [ 'key' => 'salon-2', 'area' => 'Salon 2' ]
         );
 
         Location::firstOrCreate(
-            [ 'key' => 'salon-3', 'label' => 'Salon 3' ]
+            [ 'key' => 'salon-3', 'area' => 'Salon 3' ]
         );
 
         Location::firstOrCreate(
-            [ 'key' => 'salon-4', 'label' => 'Salon 4' ]
+            [ 'key' => 'salon-4', 'area' => 'Salon 4' ]
         );
 
         Location::firstOrCreate(
-            [ 'key' => 'salon-5', 'label' => 'Salon 5' ]
+            [ 'key' => 'salon-5', 'area' => 'Salon 5' ]
         );
         
         Location::firstOrCreate(
-            [ 'key' => 'salon-6', 'label' => 'Salon 6' ]
+            [ 'key' => 'salon-6', 'area' => 'Salon 6' ]
         );
     }
 }
