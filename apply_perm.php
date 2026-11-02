@@ -8,7 +8,7 @@ $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 // Para añadir un permiso cambiar $permName (y si
 // desea, los roles). Luego ejecutar este archivo.
 // ============================================================
-$permName = 'view-transport-lists';
+$permName = 'view-locations';
 $guard    = 'sanctum';
 $roles    = ['admin']; // roles que reciben el permiso y cuyo snapshot se actualiza
 

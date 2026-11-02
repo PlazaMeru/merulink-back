@@ -75,6 +75,8 @@ class RoleSeeder extends Seeder
             'create-shifts', 'view-shifts', 'edit-shifts', 'delete-shifts',
             // Asistencia
             'create-attendances','view-attendances', 'edit-attendances', 'view-at-home-attendances', 'prepayroll-attendances',
+            // Ubicaciones
+            'create-locations', 'view-locations', 'edit-locations', 'delete-locations',
         ];
 
         foreach ($permissions as $permissionName) {

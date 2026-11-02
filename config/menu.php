@@ -102,6 +102,13 @@ return [
             ['id' => 'MeruBirthDays', 'label' => 'Cumpleaños Merú', 'path' => '/eventos/cumpleanos-meru'],
             ['id' => 'ExecutiveMod', 'label' => 'Ejecutivos MOD', 'path' => '/eventos/ejecutivo-mod'],
             ['id' => 'BankingMondays', 'label' => 'Lunes Bancarios', 'path' => '/eventos/lunes-bancarios'],
+            [  
+                'id'          => 'Ubicaciones',
+                'label'       => 'Ubicaciones',
+                'path'        => '/eventos/ubicaciones',
+                'permission'  => 'view-locations',
+                'hideFromTop' => true,
+            ],
         ],
     ],
 
