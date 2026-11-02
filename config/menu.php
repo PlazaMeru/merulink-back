@@ -52,6 +52,7 @@ return [
                     ['id' => 'Consultar', 'label' => 'Consultar', 'path' => '/empleados/asistencia/ver', 'permission' => 'view-attendances'],
                     ['id' => 'Prenomina', 'label' => 'Prenomina', 'path' => '/empleados/asistencia/prenomina', 'permission' => 'prepayroll-attendances'],
                     ['id' => 'Modificar', 'label' => 'Modificar', 'path' => '/empleados/asistencia/editar', 'permission' => 'edit-attendances'],
+                    ['id' => 'Lista de transporte', 'label' => 'Lista de transporte', 'path' => '/empleados/asistencia/lista-transporte', 'permission' => 'view-transport-lists'],
                 ],
             ],
             [
