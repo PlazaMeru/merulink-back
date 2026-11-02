@@ -19,6 +19,7 @@ use Carbon\Carbon;
 use App\Models\Assign;
 use App\Models\Padlock;
 use App\Models\Locker;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Resources\AssignResource;
 use App\Http\Requests\StoreAssingRequest;
@@ -81,6 +82,10 @@ class AssignController extends Controller
                 'status' => PadlockStatus::ASSIGNED
             ]);
 
+            Employee::where('id', $employeeId)->update([
+                'use_locker' => true
+            ]);
+            
             $assign->load('employee');
 
             return new AssignResource($assign);
