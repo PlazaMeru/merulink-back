@@ -74,7 +74,7 @@ class RoleSeeder extends Seeder
             // Turnos
             'create-shifts', 'view-shifts', 'edit-shifts', 'delete-shifts',
             // Asistencia
-            'create-attendances','view-attendances', 'edit-attendances', 'view-at-home-attendances', 'prepayroll-attendances',
+            'create-attendances','view-attendances', 'edit-attendances', 'view-at-home-attendances', 'prepayroll-attendances', 'view-transport-lists-attendances',
             // Ubicaciones
             'create-locations', 'view-locations', 'edit-locations', 'delete-locations',
         ];
