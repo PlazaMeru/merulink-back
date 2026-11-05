@@ -16,6 +16,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ApiResponseHelper;
 use App\Models\Location;
+use App\Http\Resources\LocationResource;
 use App\Http\Requests\StoreLocationRequest;
 use Illuminate\Support\Str;
 
@@ -34,7 +35,7 @@ class LocationController extends Controller
             'ok',
             'locations_fetched',
             'Ubicaciones obtenidas correctamente',
-            $locations
+            LocationResource::collection($locations)->resolve()
         );
     }
 
@@ -52,7 +53,7 @@ class LocationController extends Controller
             'ok',
             'created_location',
             'Ubicación creada exitosamente',
-            $location,
+            (new LocationResource($location))->resolve(),
             201
         );
     }
@@ -68,7 +69,7 @@ class LocationController extends Controller
             'ok',
             'location_found',
             'Ubicación encontrada',
-            $location
+            (new LocationResource($location))->resolve()
         );
     }
 
@@ -91,7 +92,7 @@ class LocationController extends Controller
             'ok',
             'updated_location',
             'Ubicación actualizada exitosamente',
-            $location
+            (new LocationResource($location))->resolve()
         );
     }
 

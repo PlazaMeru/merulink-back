@@ -19,7 +19,8 @@ class LocationResource extends JsonResource
             'key' => $this->key,
             'area' => $this->area,
             'floor' => $this->floor,
-            'reference_point' => $this->reference_point,
+            'referencePoint' => $this->reference_point,
+            'eventsCount' => $this->when(isset($this->events_count), $this->events_count),
         ];
     }
 }
