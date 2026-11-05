@@ -16,6 +16,8 @@
 |   - permission  (string)  Permiso requerido (omitir si no exige permiso)
 |   - hidden      (bool)    true = módulo no desarrollado, nunca se muestra
 |   - hideFromTop (bool)    true = se mantiene en estructura/sidebar pero NO sale en el top menú
+|   - highlight   (bool)    true = se muestra con el estilo de botón destacado
+|   - icon        (string)  SVG opcional que acompaña al texto del item
 |   - children    (array)   Sub-items del sidebar
 |
 */

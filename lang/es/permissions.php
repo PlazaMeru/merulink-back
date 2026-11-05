@@ -32,8 +32,8 @@ return [
         'roles'             => 'Roles',
         'subdepartments'    => 'Subdepartamentos',
         'shifts'            => 'Turnos',
-        // 'locations'         => 'Ubicaciones',
-        'attendances' => 'Asistencia',
+        'locations'         => 'Ubicaciones',
+        'attendances'       => 'Asistencia',
     ],
 
     'actions' => [
@@ -59,5 +59,6 @@ return [
         // Asistencia
         'view-at-home-attendances' => 'En casa',
         'prepayroll-attendances' => 'Prenomina de asistencia',
+        'view-transport-lists-attendances' => 'Ver listas de transporte',
     ],
 ];
