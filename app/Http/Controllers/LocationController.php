@@ -14,8 +14,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ApiResponseHelper;
 use App\Models\Location;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreLocationRequest;
 use Illuminate\Support\Str;
 
@@ -26,8 +26,16 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::withCount('events')->orderBy('key')->get();
-        return response()->json([ 'data' => $locations ]);
+        $locations = Location::withCount('events')
+            ->orderBy('area')
+            ->get();
+
+        return ApiResponseHelper::createResponse(
+            'ok',
+            'locations_fetched',
+            'Ubicaciones obtenidas correctamente',
+            $locations
+        );
     }
 
     /**
@@ -40,7 +48,13 @@ class LocationController extends Controller
 
         $location = Location::create($data);
 
-        return response()->json(['data' => $location], 201);
+        return ApiResponseHelper::createResponse(
+            'ok',
+            'created_location',
+            'Ubicación creada exitosamente',
+            $location,
+            201
+        );
     }
 
     /**
@@ -48,7 +62,14 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
-        //
+        $location->loadCount('events');
+
+        return ApiResponseHelper::createResponse(
+            'ok',
+            'location_found',
+            'Ubicación encontrada',
+            $location
+        );
     }
 
     /**
@@ -64,8 +85,14 @@ class LocationController extends Controller
         }
 
         $location->update($data);
+        $location->loadCount('events');
 
-        return response()->json(['data' => $location]);
+        return ApiResponseHelper::createResponse(
+            'ok',
+            'updated_location',
+            'Ubicación actualizada exitosamente',
+            $location
+        );
     }
 
     /**
@@ -74,16 +101,23 @@ class LocationController extends Controller
     public function destroy(Location $location)
     {
         if ($location->events()->exists()) {
-            return response()->json([
-                'message' => 'No se puede eliminar: esta ubicación tiene eventos asociados.'
-            ], 422);
+            return ApiResponseHelper::createResponse(
+                'fail',
+                'location_has_events',
+                'No se puede eliminar: esta ubicación tiene eventos asociados.',
+                null,
+                422
+            );
         }
 
+        $area = $location->area;
         $location->delete();
 
-        return response()->json([
-            'message' => "La ubicación {$location->area} ha sido eliminada correctamente."
-        ], 200);
+        return ApiResponseHelper::createResponse(
+            'ok',
+            'deleted_location',
+            "La ubicación {$area} ha sido eliminada correctamente."
+        );
     }
 
     /**
