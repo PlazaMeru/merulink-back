@@ -18,6 +18,7 @@ return new class extends Migration
         Schema::table('locations', function (Blueprint $table) {
             $table->string('floor')->nullable()->after('area');
             $table->string('reference_point')->nullable()->after('floor');
+            $table->unique('area');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('locations', function (Blueprint $table) {
+            $table->dropUnique('locations_area_unique');
             $table->dropColumn(['floor', 'reference_point']);
         });
 

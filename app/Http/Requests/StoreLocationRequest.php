@@ -14,7 +14,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Location;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreLocationRequest extends FormRequest
 {
@@ -34,7 +36,12 @@ class StoreLocationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'area' => ['required', 'string', 'max:100'],
+            'area' => [
+                'required', 
+                'string', 
+                'max:100',
+                Rule::unique('locations', 'area')->ignore($this->route('location'))
+            ],
             'floor' => ['required', 'string', 'max:50'],
             'reference_point' => ['nullable', 'string', 'max:255'],
         ];
@@ -46,6 +53,7 @@ class StoreLocationRequest extends FormRequest
             'area.required' => 'La Zona / Área es obligatoria.',
             'area.string'   => 'La Zona / Área debe ser un texto válido.',
             'area.max'      => 'La Zona / Área no debe superar los 100 caracteres.',
+            'area.unique'   => 'Ya existe una ubicación con esta Zona / Área.',
             'floor.required' => 'El Nivel / Planta es obligatorio.',
             'floor.string'   => 'El Nivel / Planta debe ser un texto válido.',
             'floor.max'      => 'El Nivel / Planta no debe superar los 50 caracteres.',
