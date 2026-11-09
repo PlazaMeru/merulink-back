@@ -98,6 +98,11 @@ class StoreEmployeeRequest extends FormRequest
                 'string',
             ],
 
+            'city_address' => [
+                'nullable',
+                'string',
+            ],
+
             'hire_date' => [
                 'required',
                 'date',
@@ -224,6 +229,7 @@ class StoreEmployeeRequest extends FormRequest
             'mobile_phone' => 'teléfono móvil',
             'home_phone' => 'teléfono fijo',
             'address' => 'dirección',
+            'city_address' => 'ciudad de residencia',
             'hire_date' => 'fecha de ingreso',
             'department_id' => 'departamento',
             'sub_department.id' => 'subdepartamento',
