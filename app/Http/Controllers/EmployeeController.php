@@ -121,6 +121,12 @@ class EmployeeController extends Controller
                 }
             }
 
+            if (isset($data['bank_information'])) {
+                foreach ($data['bank_information'] as $bankInformation) {
+                    $employee->bankInformation()->create($bankInformation);
+                }
+            }
+
             if ($data['use_meru_link']) {
                 $user = User::create([
                     'username' => $data['username'],
@@ -153,6 +159,7 @@ class EmployeeController extends Controller
                 'roleSnapshot',
                 'user.permissions',
                 'user.roles.permissions',
+                'bankInformation',
             ]));
         });
 
@@ -243,6 +250,14 @@ class EmployeeController extends Controller
                 }
             }
 
+            $employee->bankInformation()->delete();
+
+            if (isset($data['bank_information'])) {
+                foreach ($data['bank_information'] as $bankInformation) {
+                    $employee->bankInformation()->create($bankInformation);
+                }
+            }
+
             $employee->latestEmployeePeriod()->update([
                 'hire_date' => $data['hire_date'],
             ]);
@@ -254,6 +269,7 @@ class EmployeeController extends Controller
                 'roleSnapshot',
                 'user.permissions',
                 'user.roles.permissions',
+                'bankInformation',
             ]));
         });
 

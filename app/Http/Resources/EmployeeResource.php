@@ -78,6 +78,7 @@ class EmployeeResource extends JsonResource
             'useLocker' => $this->use_locker,
             'useTransport' => $this->use_transport,
             'contacts' => EmergencyContactResource::collection($this->emergencyContacts),
+            'bankInformation' => BankInformationResource::collection($this->bankInformation),
             'assign' => new AssignResource($this->whenLoaded('assignment')),
             $this->mergeWhen($hasVacation, [
                 'vacation' => new VacationResource($this->vacations->first())

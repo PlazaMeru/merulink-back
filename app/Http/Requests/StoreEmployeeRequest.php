@@ -177,6 +177,12 @@ class StoreEmployeeRequest extends FormRequest
                 'max:5',
             ],
 
+            'bank_information' => [
+                'nullable',
+                'array',
+                'max:2',
+            ],
+
             'assign_id' => [
                 'nullable',
                 'integer',
@@ -243,6 +249,7 @@ class StoreEmployeeRequest extends FormRequest
             'use_locker' => 'usa locker',
             'use_transport' => 'usa transporte',
             'contacts' => 'contactos de emergencia',
+            'bank_information' => 'información bancaria',
             'assign_id' => 'id de asignación de locker',
             'role_id' => 'rol de usuario',
             'permissions' => 'permisos de usuario',

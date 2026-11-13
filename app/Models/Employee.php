@@ -57,6 +57,11 @@ class Employee extends Model
         return $this->hasMany(EmergencyContact::class);
     }
 
+    public function bankInformation() : HasMany
+    {
+        return $this->hasMany(BankInformation::class);
+    }
+
     public function vacations() : HasMany 
     {
         return $this->hasMany(Vacation::class);
