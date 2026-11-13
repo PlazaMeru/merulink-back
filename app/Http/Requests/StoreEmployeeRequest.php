@@ -176,11 +176,50 @@ class StoreEmployeeRequest extends FormRequest
                 'array',
                 'max:5',
             ],
+            'contacts.*.name' => [
+                'required_with:contacts',
+                'string',
+                'max:20',
+            ],
+            'contacts.*.last_name' => [
+                'required_with:contacts',
+                'string',
+                'max:20',
+            ],
+            'contacts.*.relationship' => [
+                'required_with:contacts',
+                'string',
+            ],
+            'contacts.*.phone' => [
+                'required_with:contacts',
+                'string',
+                'regex:/^\d{11}$/',
+            ],
+            'contacts.*.address' => [
+                'required_with:contacts',
+                'string',
+            ],
 
             'bank_information' => [
                 'nullable',
                 'array',
                 'max:2',
+            ],
+            'bank_information.*.bank_name' => [
+                'required_with:bank_information',
+                'string',
+                'max:50',
+            ],
+            'bank_information.*.account_number' => [
+                'required_with:bank_information',
+                'string',
+                'regex:/^\d+$/',
+                'max:20',
+            ],
+            'bank_information.*.mobile_pay_number' => [
+                'nullable',
+                'string',
+                'regex:/^\d{11}$/',
             ],
 
             'assign_id' => [
@@ -249,7 +288,15 @@ class StoreEmployeeRequest extends FormRequest
             'use_locker' => 'usa locker',
             'use_transport' => 'usa transporte',
             'contacts' => 'contactos de emergencia',
+            'contacts.*.name' => 'nombre del contacto',
+            'contacts.*.last_name' => 'apellido del contacto',
+            'contacts.*.relationship' => 'parentesco del contacto',
+            'contacts.*.phone' => 'teléfono del contacto',
+            'contacts.*.address' => 'dirección del contacto',
             'bank_information' => 'información bancaria',
+            'bank_information.*.bank_name' => 'banco',
+            'bank_information.*.account_number' => 'número de cuenta',
+            'bank_information.*.mobile_pay_number' => 'número de pago móvil',
             'assign_id' => 'id de asignación de locker',
             'role_id' => 'rol de usuario',
             'permissions' => 'permisos de usuario',
